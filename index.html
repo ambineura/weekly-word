@@ -21,7 +21,7 @@ const weeklyWord = () => {
   d.setUTCHours(0,0,0,0);
 
   const weekStart = new Date(d);
-  const weekEnd = new Date(weekStart.getTime() + 7*864e5);
+  const weekEnd = new Date(weekStart.getTime() + 7*864e5 - 1); // till 23:59
 
   const weekIndex = Math.floor(weekStart.getTime() / 604800000);
   const seed = weekIndex >>> 0;
