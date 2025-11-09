@@ -3,8 +3,8 @@
 <meta charset="UTF-8">
 <title>Слово недели</title>
 <style>
-  body { font-family: sans-serif; text-align: center; margin-top: 15vh; font-size: 2em; }
-  small { display: block; margin-top: 1em; font-size: 0.5em; color: #555; }
+  body { font-family: sans-serif; text-align: center; margin-top: 10vh; font-size: 4em; }
+  small { display: block; margin-top: 1em; font-size: 0.25em; color: #555; }
 </style>
 <body>
 <div id="word"></div>
@@ -40,8 +40,8 @@ const updateDisplay = () => {
 
   document.getElementById("word").textContent = word;
   document.getElementById("info").innerHTML = `
-    Неделя: ${weekStart.toISOString().slice(0,10)} – ${weekEnd.toISOString().slice(0,10)}<br>
-    До конца: ${days}д ${hours}ч ${mins}м
+    Неделя: с ${weekStart.toISOString().slice(0,10)} по ${weekEnd.toISOString().slice(0,10)}<br>
+    Следующее слово: через ${days}д ${hours}ч ${mins}м
   `;
 };
 
