@@ -7,6 +7,7 @@
   small { display: block; margin-top: 1em; font-size: 0.25em; color: #555; }
 </style>
 <body>
+<small>слово недели:</small>
 <div id="word"></div>
 <small id="info"></small>
 <script>
@@ -40,7 +41,7 @@ const updateDisplay = () => {
 
   document.getElementById("word").textContent = word;
   document.getElementById("info").innerHTML = `
-    слово недели: с <b>${weekStart.toISOString().slice(0,10)}</b> по <b>${weekEnd.toISOString().slice(0,10)}</b><br>
+    (с <b>${weekStart.toISOString().slice(0,10)}</b> по <b>${weekEnd.toISOString().slice(0,10)}</b>)<br>
     следующее слово: через ${days}д ${hours}ч ${mins}м
   `;
 };
