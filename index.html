@@ -40,8 +40,8 @@ const updateDisplay = () => {
 
   document.getElementById("word").textContent = word;
   document.getElementById("info").innerHTML = `
-    Неделя: с ${weekStart.toISOString().slice(0,10)} по ${weekEnd.toISOString().slice(0,10)}<br>
-    Следующее слово: через ${days}д ${hours}ч ${mins}м
+    слово недели: с <b>${weekStart.toISOString().slice(0,10)}</b> по <b>${weekEnd.toISOString().slice(0,10)}</b><br>
+    следующее слово: через ${days}д ${hours}ч ${mins}м
   `;
 };
 
