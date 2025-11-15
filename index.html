@@ -5,7 +5,7 @@
 <style>
   body { font-family: Tahoma, sans-serif; text-align: center; margin-top: 10vh; font-size: 4em; }
   small { display: block; margin-top: 1em; font-size: 0.25em; color: #888; }
-  words { display: flex; gap: 20px; }
+  words { display: flex; flex-direction: raw; gap: 20px; }
   #prev-word, #next-word {color: #ddd;}
 </style>
 <body>
@@ -32,7 +32,7 @@ const weeklyWord = () => {
   const weekIndex = Math.floor(weekStart.getTime() / 604800000);
   const seed = weekIndex >>> 0;
   const wordArr = [];
-  for (let i=seed-1; i<seed+1; i++) {
+  for (let i=seed-1; i<=seed+1; i++) {
     const rnd = (i * 1664525 + 1013904223) >>> 0;
     wordArr.push (words[rnd % words.length]);
   }
