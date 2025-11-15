@@ -5,10 +5,16 @@
 <style>
   body { font-family: Tahoma, sans-serif; text-align: center; margin-top: 10vh; font-size: 4em; }
   small { display: block; margin-top: 1em; font-size: 0.25em; color: #888; }
+  words { display: flex; gap: 20px; }
+  #prev-word, #next-word {color: #ddd;}
 </style>
 <body>
 <small>старт-слово недели</small>
-<div id="word"></div>
+<div id="words">
+  <div id="prev-word"></div>
+  <div id="word"></div>
+  <div id="next-word"></div>
+</div>
 <small id="info"></small>
 <script>
 const weeklyWord = () => {
@@ -25,21 +31,26 @@ const weeklyWord = () => {
 
   const weekIndex = Math.floor(weekStart.getTime() / 604800000);
   const seed = weekIndex >>> 0;
-  const rnd = (seed * 1664525 + 1013904223) >>> 0;
-  const word = words[rnd % words.length];
+  const wordArr = [];
+  for (let i=seed-1; i<seed+1; i++) {
+    const rnd = (i * 1664525 + 1013904223) >>> 0;
+    wordArr.push (words[rnd % words.length]);
+  }
 
-  return { word, weekStart, weekEnd };
+  return { 'prevWord':wordArr[0], 'word':wordArr[1], 'nextWord':wordArr[2], weekStart, weekEnd };
 };
 
 const updateDisplay = () => {
-  const { word, weekStart, weekEnd } = weeklyWord();
+  const { prevWord, word, nextWord, weekStart, weekEnd } = weeklyWord();
   const now = new Date();
   const remain = weekEnd - now;
   const days = Math.floor(remain / 86400000);
   const hours = Math.floor(remain % 86400000 / 3600000);
   const mins = Math.floor(remain % 3600000 / 60000);
 
+  document.getElementById("prev-word").textContent = prevWord;
   document.getElementById("word").textContent = word;
+  document.getElementById("next-word").textContent = nextWord;
   document.getElementById("info").innerHTML = `
     (с <b>${weekStart.toISOString().slice(0,10)}</b> по <b>${weekEnd.toISOString().slice(0,10)}</b>)<br>
     следующее слово через ${days}д ${hours}ч ${mins}м
