@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <meta charset="UTF-8">
-<title>Слово недели</title>
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACeklEQVR4AexVT0iTYRj/+VVrY2wunLVJiVvBNoO8zK6KR8nQDW+liCBSd8EwCIRUEEXQk570lLbQS51kybBDxzraWl7ahFq4Kblg+3qfx32wj7Z932FtHja+5/ne58/7+/143pdvEl5Acs26poR9d8+65WoYcQmbIm7JZXQ9a0DDtDAnqvQjLmHTxC2JxdMq8f5DI7ifSCLrEFarx0kCakXOvHUB9Qlc/AnMP5jHanAVY/fH+NYqztvs5TzVOpwdSprfI/4Rri09XOK4nNOcgMfuQc+dHnTf7lbh2Ew2zlPNbraral3uLq75rvtU+WKBpoB4Os77nFb9X2qn5bxX2csAJZxuAQ6LA+LTWQJGnVbExlPn4tVVdaQtIA9iuGRAk7lJvbtI1GhshNlg5koineB3OacpoBBEGW05wMKeih4BkSrgxstGDN4bpBRb/91+mK6YeK2Mn4KKHgEBEnirrRVbj7ZApJQj6/X2IvQ4hLZrbWixtlCKrSITOEofQZZlBiSineEdtN9oR07OYTGyiJnwDLK5LDzNHmwPb6PP18e95AqPj+JipnkHMtkMkr+TvNd/0w+r0YqTzAnG34xj+cMy1j6uYfT1KI7PjmG5akHnrU7upZ50Js3rck5TAG0uPMtYMobARgC7X3apxBaJRTCwPoCDHwcck9MzfurTJWDv6x72v+0j9DmEwHoA0Z9R2quyw1+HCG4Esflpk3vD0bCqXirQJWAhsoChV0OYeDuBVCZVCgunf04x+W6Se+fez5XsKyzoElC4odLruoD6BC7EBLT/Myt99fN4MuSEJNxKPq7Fa0WKncVeChHPBft/mYTALfYkiJO4/wIAAP//50+nkAAAAAZJREFUAwB1pvLV50W/dgAAAABJRU5ErkJggg==" />
+<title>...</title>
 <style>
   body { font-family: Tahoma, sans-serif; text-align: center; margin-top: 10vh; font-size: 4em; }
   small { display: block; margin-top: 1em; font-size: 0.25em; color: #888; }
@@ -55,6 +56,8 @@ const updateDisplay = () => {
     (с <b>${weekStart.toISOString().slice(0,10)}</b> по <b>${weekEnd.toISOString().slice(0,10)}</b>)<br>
     следующее слово через ${days}д ${hours}ч ${mins}м
   `;
+
+  document.title = `Слово недели: ${word.toUpperCase()}`;
 };
 
 // первый рендер
